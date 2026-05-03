@@ -1,25 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Yannic Schopfer Projekte</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <h1>My Website</h1>
-    <div>
-        <p>This is a test for my first Website</p>
+
+    <header class="hero">
+        <h1>Yannic Schopfer</h1>
+        <p>CS Student at RPTU Kaiserslautern building applications </p>
+    </header>
+
+    <section>
+        <div class="container" class="about-card">
+            <h2>About Me</h2>
+
+            <div class="about-content">
+                <img src="Bild_Yannic_Schopfer.jpeg" alt="Yannic Schopfer" class="profile-pic">
+
+                <div class="card">
+                    <p>Before getting into software development, I spent six years working on the assembly line at
+                        Daimler.
+                        Now I'm putting that same work ethic into building my own projects.
+                        At the moment I'm working with C++ and SFML, and I'm planning to move into mobile development
+                        next,
+                        starting with a fitness tracker app.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="grid">
+
+                <a href="https://github.com/yschopfer19/RhythmTap" target="_blank" class="project-card">
+                    <h3>RhythmTap</h3>
+                    <p>A lane-based rhythm game built from scratch in C++ with SFML, featuring hit detection, hold
+                        notes, and a custom beatmap system.</p>
+
+                    <div class="tags">
+                        <span>C++</span>
+                        <span>SFML</span>
+                        <span>In Development</span>
+                    </div>
+                </a>
+
+                <a href="project2.html" target="_blank" class="project-card">
+                    <h3>FitTrack</h3>
+                    <p>A cross-platform fitness tracking app for iOS and Android, built with Flutter and Supabase.
+                        Log workouts, track progress, and sync with Apple Health and Google Health Connect.</p>
+
+                    <div class="tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>Supabase</span>
+                        <span>Coming Soon</span>
+                    </div>
+                </a>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="imprint">
+        <h2>Impressum</h2>
+        <p>
+        Yannic Schopfer <br>
+        E-Mail: yannicschopfer@gmail.com <br>
+        Persönliches Portfolio <br>
+        </p>
+        
+    </section>
+
+    <div class="social-links">
+        <a href="https://github.com/yschopfer19" target="_blank">GitHub Profile</a>
+        <!--<a href="TODO" target="_blank">Link</a>
+        <a href="TODO" target="_blank">Link</a>-->
     </div>
-
-    <div>
-        <p></p>
-    </div>
-
-    
-    <ul>
-        <li>Project 1</li>
-        <li>Project 2</li>
-    </ul>
-
 
 </body>
