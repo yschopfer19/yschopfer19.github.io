@@ -4,51 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yannic Schopfer Projekte</title>
-
+    <title>Yannic Schopfer Projects</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
     <header class="hero">
-        <h1>Yannic Schopfer</h1>
-        <p>CS Student at RPTU Kaiserslautern building applications </p>
+        <div class="hero-glow"></div>
+        <p class="hero-eyebrow">CS Student · RPTU Kaiserslautern</p>
+        <h1 class="hero-name">Yannic<br>Schopfer</h1>
+        <p class="hero-sub">Building things from scratch —<br>C++, Mobile & beyond.</p>
+        <a href="#projects" class="hero-cta">See my work ↓</a>
     </header>
 
-    <section>
-        <div class="container" class="about-card">
-            <h2>About Me</h2>
+    <div class="social-links">
+        <a href="https://github.com/yschopfer19" target="_blank">GitHub Profile</a>
+        <a href="https://www.linkedin.com/in/yannic-schopfer-348ab5416/" target="_blank">LinkedIn Profile</a>
+    </div>
 
+    <section>
+        <div class="container">
+            <h2>About Me</h2>
             <div class="about-content">
                 <img src="Bild_Yannic_Schopfer.jpeg" alt="Yannic Schopfer" class="profile-pic">
-
                 <div class="card">
-                    <p>Before getting into software development, I spent six years working on the assembly line at
-                        Daimler.
-                        Now I'm putting that same work ethic into building my own projects.
-                        At the moment I'm working with C++ and SFML, and I'm planning to move into mobile development
-                        next,
-                        starting with a fitness tracker app.
+                    <p>Alongside my studies, I worked on the assembly line at Daimler.
+                        That same discipline now drives how I build software.
+                        Currently working with C++ and SFML, with mobile development up next.
                     </p>
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projects">
         <div class="container">
             <h2>Projects</h2>
-
             <div class="grid">
 
-                <a href="https://github.com/yschopfer19/RhythmTap" target="_blank" class="project-card">
-                    <h3>RhythmTap</h3>
+                <a href="https://github.com/yschopfer19/RhythmProject" target="_blank" class="project-card">
+                    <h3>Rhythm Project</h3>
                     <p>A lane-based rhythm game built from scratch in C++ with SFML, featuring hit detection, hold
                         notes, and a custom beatmap system.</p>
-
                     <div class="tags">
                         <span>C++</span>
                         <span>SFML</span>
@@ -56,40 +54,48 @@
                     </div>
                 </a>
 
-                <a href="project2.html" target="_blank" class="project-card">
-                    <h3>FitTrack</h3>
+                <a href="https://github.com/yschopfer19/fitness_tracker" target="_blank" class="project-card">
+                    <h3>Fitness Tracking Project</h3>
                     <p>A cross-platform fitness tracking app for iOS and Android, built with Flutter and Supabase.
                         Log workouts, track progress, and sync with Apple Health and Google Health Connect.</p>
-
                     <div class="tags">
                         <span>Flutter</span>
                         <span>Dart</span>
                         <span>Supabase</span>
-                        <span>Coming Soon</span>
+                        <span>In Development</span>
                     </div>
                 </a>
-
-
 
             </div>
         </div>
     </section>
 
-
-    <section class="imprint">
-        <h2>Impressum</h2>
-        <p>
-        Yannic Schopfer <br>
-        E-Mail: yannicschopfer@gmail.com <br>
-        Persönliches Portfolio <br>
-        </p>
-        
-    </section>
-
-    <div class="social-links">
-        <a href="https://github.com/yschopfer19" target="_blank">GitHub Profile</a>
-        <!--<a href="TODO" target="_blank">Link</a>
-        <a href="TODO" target="_blank">Link</a>-->
-    </div>
+    <footer class="footer-imprint">
+        <div class="footer-inner">
+            <button class="imprint-toggle"
+                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">Impressum</button>
+            <a class="imprint-link" href="datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="imprint-body">
+            <div class="imprint-block">
+                <span class="imprint-label">Angaben gemäß § 5 DDG</span>
+                <span>Yannic Schopfer</span>
+                <span>c/o Block Services</span>
+                <span>Stuttgarter Str. 106</span>
+                <span>70736 Fellbach</span>
+                <span>Deutschland</span>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Kontakt</span>
+                <a href="mailto:yannicschopfer@gmail.com">yannicschopfer@gmail.com</a>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Hinweis</span>
+                <span>Projektportfolio</span>
+            </div>
+        </div>
+    </footer>
 
 </body>
+
+</html>
