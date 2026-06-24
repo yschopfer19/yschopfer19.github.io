@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Project · Yannic Schopfer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+
+    <nav class="project-nav">
+        <a href="index.html" class="project-nav-back">← Back</a>
+        <a href="https://github.com/yschopfer19/RhythmProject" target="_blank" class="project-nav-github">
+            View on GitHub ↗
+        </a>
+    </nav>
+
+    <div class="project-hero">
+        <div class="hero-glow"></div>
+        <p class="hero-eyebrow">C++ · SFML · In Development</p>
+        <h1 class="hero-name">Rhythm Project</h1>
+        <p class="hero-sub">A lane-based rhythm game built from scratch.</p>
+    </div>
+
+    <main class="project-main container">
+
+        <!-- Video Demo -->
+        <section class="project-section">
+            <h2>Demo</h2>
+            <div class="video-wrapper card">
+                <video controls preload="metadata" poster="">
+                    <source src="RhythmProject.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="project-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+
+                <div class="card feature-card">
+                    <h4>Lane-based Gameplay</h4>
+                    <p>Notes scroll down multiple lanes and the player hits them in time with the music.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Hit Detection</h4>
+                    <p>Timing windows judge each hit — perfect, good, or miss — with immediate visual feedback.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Hold Notes</h4>
+                    <p>Sustained notes that require the player to hold a key for the full duration.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Custom Beatmap System</h4>
+                    <p>Beatmaps are loaded from custom files, making it easy to add new songs and patterns.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="project-section">
+            <h2>Structure</h2>
+            <p class="arch-hint">Click a folder to see what's inside.</p>
+            <div class="arch-grid">
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">src/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">All game logic and the main loop.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>main.cpp</code> — entry point, initialises the window and starts the game loop</li>
+                            <li><code>Game.cpp</code> — central loop: update, input, render</li>
+                            <li><code>Lane.cpp</code> — manages a single note lane and its active notes</li>
+                            <li><code>Note.cpp</code> — note movement, hold-note logic, lifetime</li>
+                            <li><code>BeatmapParser.cpp</code> — reads beatmap files and schedules notes</li>
+                            <li><code>ScoreManager.cpp</code> — tracks hits, misses, and combo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">include/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Header files for all core classes.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>Game.h</code> — declares the game state and main loop interface</li>
+                            <li><code>Lane.h</code> — lane width, key binding, note list</li>
+                            <li><code>Note.h</code> — note type (tap / hold), timing window, position</li>
+                            <li><code>BeatmapParser.h</code> — beatmap format definition and parser interface</li>
+                            <li><code>ScoreManager.h</code> — score, combo, and accuracy tracking</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">assets/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Fonts, audio, and beatmap files.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>fonts/</code> — UI font used for score and feedback text</li>
+                            <li><code>sounds/</code> — hit sounds and background music tracks</li>
+                            <li><code>beatmaps/</code> — custom beatmap files, one per song</li>
+                        </ul>
+                        <p>Kept fully separate from code so songs and assets can be swapped without touching any source files.</p>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">SFML</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">The only external dependency.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><strong>Graphics</strong> — window creation, sprite rendering, shapes</li>
+                            <li><strong>Audio</strong> — music playback and hit sound effects</li>
+                            <li><strong>Input</strong> — keyboard polling each frame</li>
+                            <li><strong>Clock</strong> — delta time for frame-rate independent movement</li>
+                        </ul>
+                        <p>No game engine used, all gameplay systems are hand-built on top of SFML.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Status -->
+        <section class="project-section">
+            <h2>Status</h2>
+            <div class="card status-card">
+                <div class="status-row">
+                    <span class="status-label">State</span>
+                    <span class="badge badge--small">In Development</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Language</span>
+                    <span class="status-value">C++ · C</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Library</span>
+                    <span class="status-value">SFML</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Repo</span>
+                    <a href="https://github.com/yschopfer19/RhythmProject" target="_blank"
+                       class="status-link">github.com/yschopfer19/RhythmProject ↗</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-imprint">
+        <div class="footer-inner">
+            <button class="imprint-toggle"
+                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">
+                Impressum
+            </button>
+            <a class="imprint-link" href="datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="imprint-body">
+            <div class="imprint-block">
+                <span class="imprint-label">Angaben gemäß § 5 DDG</span>
+                <span>Yannic Schopfer</span>
+                <span>c/o Block Services</span>
+                <span>Stuttgarter Str. 106</span>
+                <span>70736 Fellbach</span>
+                <span>Deutschland</span>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Kontakt</span>
+                <a href="mailto:yannicschopfer@gmail.com">yannicschopfer@gmail.com</a>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Hinweis</span>
+                <span>Projektportfolio</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleArch(card) {
+            const isOpen = card.classList.contains('open');
+            document.querySelectorAll('.arch-card').forEach(c => c.classList.remove('open'));
+            if (!isOpen) card.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>

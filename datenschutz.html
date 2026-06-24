@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung</title>
-
+    <title>Datenschutzerklärung · Yannic Schopfer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project.css">
 </head>
 
 <body>
 
-    <section class="container privacy-page">
+    <nav class="project-nav">
+        <button onclick="history.back()" class="project-nav-back">← Back</button>
+    </nav>
+
+    <section class="container privacy-page" style="padding-top: 100px;">
 
         <h1>Datenschutzerklärung</h1>
 
@@ -30,54 +34,108 @@
         <div class="card">
             <h2>2. Allgemeine Hinweise</h2>
             <p>
-                Der Schutz deiner persönlichen Daten ist mir wichtig.
-                Ich behandle personenbezogene Daten vertraulich und entsprechend der DSGVO, BDSG und DDG.
+                Der Schutz deiner personenbezogenen Daten ist mir wichtig.  
+                Ich verarbeite personenbezogene Daten ausschließlich im Rahmen der geltenden Datenschutzgesetze
+                (DSGVO, BDSG sowie TDDDG).
             </p>
         </div>
 
         <div class="card">
             <h2>3. Hosting</h2>
             <p>
-                Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA)
-                gehostet.
-                GitHub kann beim Abruf der Seite Server-Logfiles erfassen (IP-Adresse, Browsertyp, Zeitpunkt). Weitere
-                Informationen: github.com/site/privacy
+                Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco,
+                CA 94107, USA) betrieben.
+                Beim Aufruf der Website werden durch GitHub technisch bedingt Server-Logfiles erfasst
+                (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem).
+
+                <br><br>
+                Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
+                an einer sicheren und stabilen Bereitstellung der Website).
+
+                <br><br>
+                Eine Übermittlung in die USA kann nicht ausgeschlossen werden. GitHub stützt sich hierbei auf
+                Standardvertragsklauseln der EU-Kommission zur Sicherstellung eines angemessenen Datenschutzniveaus.
             </p>
         </div>
 
         <div class="card">
-            <h2>4. Kontaktaufnahme</h2>
+            <h2>4. Kontaktaufnahme per E-Mail</h2>
             <p>
-                Wenn du mich per E-Mail kontaktierst, werden deine Angaben zur Bearbeitung der Anfrage gespeichert
-                und nicht ohne deine Einwilligung weitergegeben.
+                Wenn du mich per E-Mail kontaktierst, werden deine Angaben einschließlich der angegebenen
+                Kontaktdaten zur Bearbeitung der Anfrage gespeichert.
+
+                <br><br>
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen bzw. Kommunikation)
+                sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen).
+
+                <br><br>
+                Die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt und keine gesetzlichen
+                Aufbewahrungspflichten bestehen.
             </p>
         </div>
 
         <div class="card">
             <h2>5. Cookies</h2>
             <p>
-                Diese Website verwendet keine Cookies zur Nutzerverfolgung.
-                Nur technisch notwendige Cookies könnten eingesetzt werden, falls erforderlich.
+                Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.
+
+                <br><br>
+                Es kann jedoch nicht ausgeschlossen werden, dass durch den Hosting-Anbieter technisch notwendige
+                Cookies oder Speichermechanismen eingesetzt werden.
             </p>
         </div>
 
         <div class="card">
             <h2>6. Deine Rechte</h2>
             <p>
-                Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung
-                sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.
+                Du hast jederzeit das Recht auf:
+                Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit
+                im Rahmen der gesetzlichen Bestimmungen.
+
+                <br><br>
+                Außerdem hast du das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren.
             </p>
         </div>
 
         <div class="card">
             <h2>7. Änderungen</h2>
             <p>
-                Diese Datenschutzerklärung kann bei Bedarf angepasst werden.
+                Diese Datenschutzerklärung kann angepasst werden, wenn sich rechtliche Vorgaben oder die
+                technische Umsetzung der Website ändern.
             </p>
         </div>
 
     </section>
 
-</body>
+    <footer class="footer-imprint">
+        <div class="footer-inner">
+            <button class="imprint-toggle"
+                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">
+                Impressum
+            </button>
+        </div>
 
+        <div class="imprint-body">
+            <div class="imprint-block">
+                <span class="imprint-label">Angaben gemäß § 5 DDG</span>
+                <span>Yannic Schopfer</span>
+                <span>c/o Block Services</span>
+                <span>Stuttgarter Str. 106</span>
+                <span>70736 Fellbach</span>
+                <span>Deutschland</span>
+            </div>
+
+            <div class="imprint-block">
+                <span class="imprint-label">Kontakt</span>
+                <a href="mailto:yannicschopfer@gmail.com">yannicschopfer@gmail.com</a>
+            </div>
+
+            <div class="imprint-block">
+                <span class="imprint-label">Hinweis</span>
+                <span>Projektportfolio</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>

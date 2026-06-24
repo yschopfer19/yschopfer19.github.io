@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker · Yannic Schopfer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+
+    <nav class="project-nav">
+        <a href="index.html" class="project-nav-back">← Back</a>
+        <a href="https://github.com/yschopfer19/fitness_tracker" target="_blank" class="project-nav-github">
+            View on GitHub ↗
+        </a>
+    </nav>
+
+    <div class="project-hero">
+        <div class="hero-glow"></div>
+        <p class="hero-eyebrow">Flutter · Dart · Supabase · In Development</p>
+        <h1 class="hero-name">Fitness Tracker</h1>
+        <p class="hero-sub">A cross-platform workout tracking app for iOS and Android.</p>
+    </div>
+
+    <main class="project-main container">
+
+        <!-- Features -->
+        <section class="project-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+
+                <div class="card feature-card">
+                    <h4>Authentication</h4>
+                    <p>Sign up and login via Supabase Auth. Session state managed with Riverpod, automatic redirect via GoRouter.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Workout Tracking</h4>
+                    <p>Start a workout, add exercises, log sets with weight, reps, and optional RPE. Finish and save to Supabase.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Statistics & Charts</h4>
+                    <p>Personal records per exercise, weekly volume as a line chart, and weight progression over time — powered by fl_chart.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Cross-Platform</h4>
+                    <p>One codebase for iOS and Android. Planned integration with Apple Health and Google Health Connect.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Navigation</h4>
+                    <p>GoRouter with auth-aware redirects. Unauthenticated users are always sent back to login, no manual checks needed.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <h4>Nutrition (Planned)</h4>
+                    <p>Food logging with nutritional values via a foods + nutrition_entries schema. Part of Phase 4 on the roadmap.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="project-section">
+            <h2>Structure</h2>
+            <p class="arch-hint">Click a folder to see what's inside.</p>
+            <div class="arch-grid">
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">core/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">App-wide infrastructure.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>router/app_router.dart</code> — GoRouter setup with auth redirect logic</li>
+                            <li><code>router/go_router_refresh_stream.dart</code> — bridges Supabase auth stream to GoRouter's refreshListenable</li>
+                            <li><code>supabase/supabase_config.dart</code> — loads URL and publishable key from <code>.env</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">features/auth/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Login, register, session handling.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>auth_service.dart</code> — signUp, signIn, signOut via Supabase client</li>
+                            <li><code>auth_providers.dart</code> — Riverpod providers for auth state stream and current user</li>
+                            <li><code>presentation/login_screen.dart</code> — login UI</li>
+                            <li><code>presentation/register_screen.dart</code> — register UI</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">features/workouts/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Active workout flow and set logging.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>data/workout_repository.dart</code> — all Supabase queries: start/finish workout, add exercises, log and delete sets</li>
+                            <li><code>domain/workout_providers.dart</code> — <code>ActiveWorkoutNotifier</code> holds the in-progress workout state</li>
+                            <li><code>presentation/workout_screen.dart</code> — active workout UI with per-exercise set cards</li>
+                            <li><code>presentation/exercise_picker_screen.dart</code> — searchable exercise list from Supabase</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">features/statistics/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Charts and personal records.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>data/statistics_repository.dart</code> — fetches PRs, weekly volume, and weight progression from Supabase</li>
+                            <li><code>domain/statistics_providers.dart</code> — FutureProviders with <code>.family</code> for per-exercise data</li>
+                            <li><code>presentation/statistics_screen.dart</code> — TabBar with PR list, volume chart, weight chart</li>
+                            <li><code>presentation/volume_chart.dart</code> — fl_chart line chart for sets per week</li>
+                            <li><code>presentation/weight_chart.dart</code> — fl_chart line chart for weight over time</li>
+                            <li><code>presentation/pr_card.dart</code> — personal record list per exercise</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">features/home/</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Main shell and dashboard.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>home_screen.dart</code> — bottom navigation shell with three tabs: Dashboard, Workout, Statistics</li>
+                            <li>Dashboard shows summary cards: workouts this week, weight, calories, next session</li>
+                            <li>Tab state managed with a lightweight Riverpod <code>Notifier</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-card card" onclick="toggleArch(this)">
+                    <div class="arch-card-header">
+                        <h4 class="arch-title">Supabase Schema</h4>
+                        <span class="arch-chevron">▸</span>
+                    </div>
+                    <p class="arch-summary">Database tables and relations.</p>
+                    <div class="arch-detail">
+                        <ul>
+                            <li><code>profiles</code> — user profile linked to auth.users</li>
+                            <li><code>exercises</code> — exercise library with name and muscle group</li>
+                            <li><code>workouts</code> — one row per session, with user_id and finished_at</li>
+                            <li><code>workout_exercises</code> — links a workout to exercises with order_index</li>
+                            <li><code>sets</code> — weight, reps, RPE per workout_exercise</li>
+                        </ul>
+                        <p>Row Level Security on all tables — users can only read and write their own data.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="project-section">
+            <h2>Roadmap</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--done"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">Phase 1 · Done</span>
+                        <h4>Auth</h4>
+                        <p>Supabase Auth, login and register screens, session state via Riverpod, GoRouter with auth-aware redirects.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--done"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">Phase 2 · Done</span>
+                        <h4>Supabase Schema + Workout Tracking</h4>
+                        <p>Database tables, start/finish workouts, add exercises, log sets with weight, reps, and RPE.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--done"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">Phase 3 · Done</span>
+                        <h4>Progress Tracking + Statistics</h4>
+                        <p>Personal records, weekly volume chart, weight progression chart — all built with fl_chart.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot timeline-dot--active"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">Phase 4 · In Progress</span>
+                        <h4>Nutrition + Dashboard</h4>
+                        <p>Food logging with nutritional values. Dashboard with weight, calories, weekly volume, and next session overview.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">MVP · Upcoming</span>
+                        <h4>Polish + Integrations</h4>
+                        <p>Apple Health and Google Health Connect sync, barcode scanner for food logging, AI coaching suggestions.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Status -->
+        <section class="project-section">
+            <h2>Status</h2>
+            <div class="card status-card">
+                <div class="status-row">
+                    <span class="status-label">State</span>
+                    <span class="badge badge--small">In Development</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Language</span>
+                    <span class="status-value">Dart</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Framework</span>
+                    <span class="status-value">Flutter</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Backend</span>
+                    <span class="status-value">Supabase</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Platforms</span>
+                    <span class="status-value">iOS · Android</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Repo</span>
+                    <a href="https://github.com/yschopfer19/fitness_tracker" target="_blank"
+                       class="status-link">github.com/yschopfer19/fitness_tracker ↗</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-imprint">
+        <div class="footer-inner">
+            <button class="imprint-toggle"
+                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">
+                Impressum
+            </button>
+            <a class="imprint-link" href="datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="imprint-body">
+            <div class="imprint-block">
+                <span class="imprint-label">Angaben gemäß § 5 DDG</span>
+                <span>Yannic Schopfer</span>
+                <span>c/o Block Services</span>
+                <span>Stuttgarter Str. 106</span>
+                <span>70736 Fellbach</span>
+                <span>Deutschland</span>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Kontakt</span>
+                <a href="mailto:yannicschopfer@gmail.com">yannicschopfer@gmail.com</a>
+            </div>
+            <div class="imprint-block">
+                <span class="imprint-label">Hinweis</span>
+                <span>Projektportfolio</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleArch(card) {
+            const isOpen = card.classList.contains('open');
+            document.querySelectorAll('.arch-card').forEach(c => c.classList.remove('open'));
+            if (!isOpen) card.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>

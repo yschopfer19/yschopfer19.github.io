@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yannic Schopfer Projects</title>
+    <title>Yannic Schopfer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +15,7 @@
         <div class="hero-glow"></div>
         <p class="hero-eyebrow">CS Student · RPTU Kaiserslautern</p>
         <h1 class="hero-name">Yannic<br>Schopfer</h1>
-        <p class="hero-sub">Building things from scratch —<br>C++, Mobile & beyond.</p>
+        <p class="hero-sub">I like building things.<br>If there's an idea, I'll find a way to code it.</p>
         <a href="#projects" class="hero-cta">See my work ↓</a>
     </header>
 
@@ -41,9 +42,19 @@
     <section class="projects" id="projects">
         <div class="container">
             <h2>Projects</h2>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="featured">Featured</button>
+                <button class="filter-btn" data-filter="uni">Uni</button>
+                <button class="filter-btn" data-filter="small">Small</button>
+            </div>
+
             <div class="grid">
 
-                <a href="https://github.com/yschopfer19/RhythmProject" target="_blank" class="project-card">
+                <a href="RhytmProjectSub.html" target="_blank" class="project-card"
+                    data-category="featured">
+                    <span class="badge badge--featured">Featured</span>
                     <h3>Rhythm Project</h3>
                     <p>A lane-based rhythm game built from scratch in C++ with SFML, featuring hit detection, hold
                         notes, and a custom beatmap system.</p>
@@ -54,8 +65,10 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/yschopfer19/fitness_tracker" target="_blank" class="project-card">
-                    <h3>Fitness Tracking Project</h3>
+                <a href="fitness_tracker.html" target="_blank" class="project-card"
+                    data-category="featured">
+                    <span class="badge badge--featured">Featured</span>
+                    <h3>Fitness Tracking App</h3>
                     <p>A cross-platform fitness tracking app for iOS and Android, built with Flutter and Supabase.
                         Log workouts, track progress, and sync with Apple Health and Google Health Connect.</p>
                     <div class="tags">
@@ -66,6 +79,164 @@
                     </div>
                 </a>
 
+                <a href="https://github.com/yschopfer19" target="_blank" class="project-card" data-category="uni">
+                    <span class="badge badge--uni">Uni</span>
+                    <h3>Jack in the Box</h3>
+                    <p>A card game with a full GUI developed in a team of five as part of a university project.
+                        Focused on collaborative software development and clean architecture.</p>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                        <span>Team Project</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/yschopfer19" target="_blank" class="project-card" data-category="uni">
+                    <span class="badge badge--uni">Uni</span>
+                    <h3>Bachelor Project</h3>
+                    <p>Research project exploring the possibilities of LTI and REST API integrations with OpenOlat,
+                        investigating how learning platforms can be extended and connected.</p>
+                    <div class="tags">
+                        <span>LTI</span>
+                        <span>REST API</span>
+                        <span>OpenOlat</span>
+                        <span>Research</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/python-visualization/folium/pull/1866" target="_blank" class="project-card" data-category="uni">
+                    <span class="badge badge--uni">Uni</span>
+                    <h3>Open Source Contribution</h3>
+                    <p>Contributed a feature extension to Folium, a Python mapping library, as part of an open
+                        source software engineering course. Involved reading an unfamiliar codebase and following
+                        contribution guidelines end-to-end.</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Folium</span>
+                        <span>Open Source</span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="project-card" data-category="small">
+                    <span class="badge badge--small">Small</span>
+                    <h3>Vocabulary Trainer</h3>
+                    <p>A terminal-based vocabulary trainer built in C++. Runs entirely in the command line with
+                        a simple but effective quiz loop for learning new words.</p>
+                    <div class="tags">
+                        <span>C++</span>
+                        <span>CLI</span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="project-card" data-category="small">
+                    <span class="badge badge--small">Small</span>
+                    <h3>Snake</h3>
+                    <p>A classic Snake game with a graphical interface, built in Java with JavaFX. One of my
+                        first GUI projects — where the love for building games started.</p>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+
+                <div class="skill-group card">
+                    <h4 class="skill-group-title">Languages</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag skill-tag--strong">C++</span>
+                        <span class="skill-tag skill-tag--strong">Java</span>
+                        <span class="skill-tag skill-tag--strong">Dart</span>
+                        <span class="skill-tag skill-tag--strong">Python</span>
+                        <span class="skill-tag skill-tag--basic">F#</span>
+                    </div>
+                </div>
+
+                <div class="skill-group card">
+                    <h4 class="skill-group-title">Frameworks & Libraries</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag skill-tag--strong">Flutter</span>
+                        <span class="skill-tag skill-tag--strong">JavaFX</span>
+                        <span class="skill-tag skill-tag--strong">SFML</span>
+                        <span class="skill-tag skill-tag--strong">Folium</span>
+                        <span class="skill-tag skill-tag--strong">Supabase</span>
+                    </div>
+                </div>
+
+                <div class="skill-group card">
+                    <h4 class="skill-group-title">Platforms & Tools</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag skill-tag--strong">Git</span>
+                        <span class="skill-tag skill-tag--strong">GitHub</span>
+                        <span class="skill-tag skill-tag--strong">REST API</span>
+                        <span class="skill-tag skill-tag--strong">LTI</span>
+                    </div>
+                </div>
+
+                <div class="skill-group card">
+                    <h4 class="skill-group-title">Areas of Knowledge</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag skill-tag--basic">AI / Machine Learning</span>
+                        <span class="skill-tag skill-tag--basic">Scientific Computing</span>
+                        <span class="skill-tag skill-tag--basic">Network Security</span>
+                    </div>
+                </div>
+
+            </div>
+            <p class="skills-legend">
+                <span class="skill-tag skill-tag--strong">Solid</span> hands-on experience &nbsp;·&nbsp;
+                <span class="skill-tag skill-tag--basic">Basic</span> academic / introductory knowledge
+            </p>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+        <div class="container">
+            <div class="cv-header">
+                <h2>Experience</h2>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">2023 – 2026</span>
+                        <h4>B.Sc. Computer Science</h4>
+                        <p>RPTU Kaiserslautern · Focus on software engineering, algorithms, and system design.
+                            Completed bachelor project on LTI & REST API integrations with OpenOlat.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">2019 – 2023</span>
+                        <h4>B.Sc. Computer Science – Foundation Years</h4>
+                        <p>RPTU Kaiserslautern · Core studies in mathematics, programming fundamentals,
+                            functional programming (F#), network security, and scientific computing.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="timeline-date">2019 – 2025</span>
+                        <h4>Assembly Line Worker</h4>
+                        <p>Daimler · Worked on the production line alongside my studies. Taught me precision,
+                            reliability under pressure, and the discipline to show up every day.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -73,7 +244,9 @@
     <footer class="footer-imprint">
         <div class="footer-inner">
             <button class="imprint-toggle"
-                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">Impressum</button>
+                onclick="this.classList.toggle('open'); this.closest('footer').querySelector('.imprint-body').classList.toggle('open')">
+                Impressum
+            </button>
             <a class="imprint-link" href="datenschutz.html">Datenschutz</a>
         </div>
         <div class="imprint-body">
@@ -95,6 +268,23 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    const match = filter === 'all' || card.dataset.category === filter;
+                    card.classList.toggle('hidden', !match);
+                });
+            });
+        });
+    </script>
 
 </body>
 
